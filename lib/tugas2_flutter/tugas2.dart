@@ -12,7 +12,6 @@ class TugasDua extends StatelessWidget {
         centerTitle: true,
       ),
       body: Column(
-        // crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(height: 30),
           CircleAvatar(
@@ -48,18 +47,31 @@ class TugasDua extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: 10),
+          SizedBox(height: 20),
           Padding(
-            padding: EdgeInsets.only(left: 30.0, right: 30.0),
-            child: Row(
-              children: [
-                Icon(Icons.phone, color: Colors.greenAccent),
-                Spacer(),
-                // SizedBox(width: 10),
-                Text('0812-3456-7890'),
-              ],
+            padding: EdgeInsets.symmetric(horizontal: 16.0),
+            child: Container(
+              padding: EdgeInsets.all(12),
+              decoration: BoxDecoration(color: Colors.grey[100]),
+              child: Row(
+                children: [
+                  Icon(Icons.phone, color: Colors.greenAccent),
+                  Spacer(),
+                  Text('0812-3456-7890'),
+                ],
+              ),
             ),
           ),
+          // Padding(
+          //   padding: EdgeInsets.only(left: 30.0, right: 30.0),
+          //   child: Row(
+          //     children: [
+          //       Icon(Icons.phone, color: Colors.greenAccent),
+          //       Spacer(),
+          //       Text('0812-3456-7890'),
+          //     ],
+          //   ),
+          // ),
           SizedBox(height: 20),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 16.0),
@@ -91,24 +103,16 @@ class TugasDua extends StatelessWidget {
               textAlign: TextAlign.justify,
             ),
           ),
-          SizedBox(height: 20),
-          Row(
-            children: [
-              Expanded(
-                child: Container(
-                  padding: EdgeInsets.all(16),
-                  color: Colors.pink[100],
-                  child: Center(child: Text('@Instagram')),
-                ),
+          Spacer(),
+          Container(
+            color: Colors.blue,
+            padding: EdgeInsets.symmetric(vertical: 20),
+            child: Center(
+              child: Text(
+                'PPKD BATCH 2 2025',
+                style: TextStyle(color: Colors.white),
               ),
-              Expanded(
-                child: Container(
-                  padding: EdgeInsets.all(16),
-                  color: Colors.purple[100],
-                  child: Center(child: Text('LinkedIn'),),
-                ),
-              ),
-            ],
+            ),
           ),
         ],
       ),
