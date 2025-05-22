@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-// import 'package:tugas1_flutter/tugas1_flutter/tugas1.dart';
-import 'package:tugas1_flutter/tugas2_flutter/tugas2.dart';
+import 'package:tugas1_flutter/tugas4_flutter/tugas4.dart';
 
 void main() {
   runApp(const MyApp());
@@ -33,8 +32,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
       // home: const TugasSatu(),
-      home: const TugasDua(),
+      home: const TugasEmpat(),
     );
   }
 }
-
