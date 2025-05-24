@@ -51,6 +51,7 @@ class _TugasLimaState extends State<TugasLima> {
             children: [
               Align(
                 alignment: Alignment.centerLeft,
+                // ElevatedButton untuk menampilkan nama
                 child: ElevatedButton(
                   onPressed: () {
                     setState(() {
@@ -79,6 +80,7 @@ class _TugasLimaState extends State<TugasLima> {
 
               SizedBox(height: 24),
 
+              //menampilkan nama
               if (displayedName != null)
                 Align(
                   alignment: Alignment.centerRight,
@@ -115,6 +117,8 @@ class _TugasLimaState extends State<TugasLima> {
                 ),
 
               SizedBox(height: 16),
+
+              // GestureDetector
               Align(
                 alignment: Alignment.centerLeft,
                 child: Container(
@@ -164,6 +168,7 @@ class _TugasLimaState extends State<TugasLima> {
 
               SizedBox(height: 24),
 
+              // InkWell
               InkWell(
                 onTap: () {
                   setState(() {
@@ -192,7 +197,7 @@ class _TugasLimaState extends State<TugasLima> {
                     ),
                     if (showInkWellText)
                       Padding(
-                        padding: const EdgeInsets.only(left: 8.0),
+                        padding: EdgeInsets.only(left: 8.0),
                         child: Text(
                           "hehehe",
                           style: TextStyle(
@@ -206,8 +211,9 @@ class _TugasLimaState extends State<TugasLima> {
                 ),
               ),
 
-              SizedBox(height: 16),
+              SizedBox(height: 12),
 
+              // IconButton
               Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -225,7 +231,7 @@ class _TugasLimaState extends State<TugasLima> {
                   ),
                   if (isLiked)
                     Padding(
-                      padding: const EdgeInsets.only(left: 4.0),
+                      padding: EdgeInsets.only(left: 4.0),
                       child: Text(
                         "Suka",
                         style: TextStyle(
@@ -238,6 +244,7 @@ class _TugasLimaState extends State<TugasLima> {
                 ],
               ),
 
+              // TextButton
               Align(
                 alignment: Alignment.centerRight,
                 child: TextButton(
@@ -297,12 +304,12 @@ class _TugasLimaState extends State<TugasLima> {
                   ),
                 ),
               ],
-
-              SizedBox(height: 24),
             ],
           ),
         ),
       ),
+
+      //FloatingActionButton
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.teal,
         onPressed: () {
