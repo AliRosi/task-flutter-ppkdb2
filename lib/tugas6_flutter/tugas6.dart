@@ -71,17 +71,19 @@ class _TugasEnamState extends State<TugasEnam> {
                     ),
                   ),
                   SizedBox(height: 8),
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 16),
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.grey.shade400),
-                      borderRadius: BorderRadius.circular(24),
-                    ),
-                    child: TextField(
-                      keyboardType: TextInputType.emailAddress,
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        // hintText: 'roberto@dimo.com',
+                  TextField(
+                    keyboardType: TextInputType.emailAddress,
+                    decoration: InputDecoration(
+                      contentPadding: EdgeInsets.symmetric(horizontal: 16),
+                      hintText: 'alirosi@gmail.com',
+                      hintStyle: TextStyle(color: Colors.grey.shade400),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(24),
+                        borderSide: BorderSide(color: Colors.grey.shade400),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(24),
+                        borderSide: BorderSide(color: Color(0xffEA9459)),
                       ),
                     ),
                   ),
@@ -98,23 +100,21 @@ class _TugasEnamState extends State<TugasEnam> {
                     ),
                   ),
                   SizedBox(height: 8),
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 16),
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.grey.shade400),
-                      borderRadius: BorderRadius.circular(24),
-                    ),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: TextField(
-                            obscureText: !_isPasswordVisible,
-                            decoration: InputDecoration(
-                              border: InputBorder.none,
-                            ),
-                          ),
-                        ),
-                        IconButton(
+                  TextField(
+                    obscureText: !_isPasswordVisible,
+                    decoration: InputDecoration(
+                      contentPadding: EdgeInsets.symmetric(horizontal: 16),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(24),
+                        borderSide: BorderSide(color: Colors.grey.shade400),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(24),
+                        borderSide: BorderSide(color: Color(0xffEA9459)),
+                      ),
+                      suffixIcon: Padding(
+                        padding: EdgeInsets.only(right: 12),
+                        child: IconButton(
                           icon: Icon(
                             _isPasswordVisible
                                 ? Icons.visibility
@@ -127,7 +127,7 @@ class _TugasEnamState extends State<TugasEnam> {
                             });
                           },
                         ),
-                      ],
+                      ),
                     ),
                   ),
 
