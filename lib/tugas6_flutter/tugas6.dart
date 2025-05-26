@@ -111,7 +111,6 @@ class _TugasEnamState extends State<TugasEnam> {
                             obscureText: !_isPasswordVisible,
                             decoration: InputDecoration(
                               border: InputBorder.none,
-                              // hintText: '••••••••••••',
                             ),
                           ),
                         ),
@@ -132,15 +131,13 @@ class _TugasEnamState extends State<TugasEnam> {
                     ),
                   ),
 
+                  SizedBox(height: 18),
+
                   // Forgot Password button
                   Align(
                     alignment: Alignment.centerRight,
-                    child: TextButton(
-                      style: TextButton.styleFrom(
-                        minimumSize: Size.zero,
-                        padding: EdgeInsets.zero,
-                      ),
-                      onPressed: () {},
+                    child: GestureDetector(
+                      onTap: () {},
                       child: Text(
                         'Forgot Password?',
                         style: TextStyle(
@@ -151,6 +148,8 @@ class _TugasEnamState extends State<TugasEnam> {
                       ),
                     ),
                   ),
+
+                  SizedBox(height: 24),
 
                   // Sign in button
                   ElevatedButton(
@@ -172,7 +171,7 @@ class _TugasEnamState extends State<TugasEnam> {
                     ),
                   ),
 
-                  SizedBox(height: 12),
+                  SizedBox(height: 20),
 
                   Row(
                     children: [
@@ -191,7 +190,8 @@ class _TugasEnamState extends State<TugasEnam> {
                       Expanded(child: Divider()),
                     ],
                   ),
-                  SizedBox(height: 18),
+
+                  SizedBox(height: 20),
 
                   // Google and Facebook buttons
                   Row(
@@ -266,7 +266,8 @@ class _TugasEnamState extends State<TugasEnam> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 40),
+
+                  SizedBox(height: 30),
 
                   // Register
                   Row(
