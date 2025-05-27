@@ -44,4 +44,5 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
-lib/tugas6_flutter/tugas6b.dart
+# lib/tugas6_flutter/tugas6b.dart
+# lib/tugas6_flutter/splash.dart

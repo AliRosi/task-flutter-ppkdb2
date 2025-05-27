@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tugas1_flutter/tugas6_flutter/tugas6.dart';
+import 'package:tugas1_flutter/tugas7_flutter/tugas7.dart';
 
 void main() {
   runApp(const MyApp());
@@ -29,10 +29,15 @@ class MyApp extends StatelessWidget {
         //
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
+        fontFamily: 'Arimo',
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      // home: const TugasSatu(),
-      home: const TugasEnam(),
+      home: const TugasTujuh(),
+      // initialRoute: '/',
+      // routes: {
+      //   '/': (context) => const Splash(),
+      //   '/home': (context) => const TugasLima(),
+      // },
     );
   }
 }
