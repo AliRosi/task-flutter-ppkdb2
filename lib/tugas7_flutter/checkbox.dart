@@ -31,7 +31,7 @@ class _CheckboxFormState extends State<CheckboxForm> {
               _isChecked
                   ? "Lanjutkan pendaftaran diperbolehkan"
                   : "Anda belum bisa melanjutkan",
-              style: TextStyle(fontSize: 16),
+              style: TextStyle(fontSize: 16, color: Colors.deepPurple),
             ),
           ],
         ),

@@ -28,20 +28,22 @@ class _TimePickerState extends State<TimePicker> {
     return Scaffold(
       body: Padding(
         padding: EdgeInsets.all(20),
-        child: Column(
-          children: [
-            ElevatedButton(
-              onPressed: _pickTime,
-              child: Text("Pilih Waktu Pengingat"),
-            ),
-            SizedBox(height: 20),
-            Text(
-              _selectedTime != null
-                  ? "Pengingat diatur pukul: ${_selectedTime!.format(context)}"
-                  : "Belum memilih waktu",
-              style: TextStyle(fontSize: 16),
-            ),
-          ],
+        child: Center(
+          child: Column(
+            children: [
+              ElevatedButton(
+                onPressed: _pickTime,
+                child: Text("Pilih Waktu Pengingat"),
+              ),
+              SizedBox(height: 20),
+              Text(
+                _selectedTime != null
+                    ? "Pengingat diatur pukul: ${_selectedTime!.format(context)}"
+                    : "Belum memilih waktu",
+                style: TextStyle(fontSize: 16, color: Colors.deepPurple),
+              ),
+            ],
+          ),
         ),
       ),
     );

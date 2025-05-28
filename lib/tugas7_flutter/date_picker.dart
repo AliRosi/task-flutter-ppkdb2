@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:intl/date_symbol_data_local.dart';
+import 'package:intl/intl.dart';
 
 class DatePickerForm extends StatefulWidget {
   const DatePickerForm({super.key});
@@ -53,20 +53,22 @@ class _DatePickerFormState extends State<DatePickerForm> {
     return Scaffold(
       body: Padding(
         padding: EdgeInsets.all(20),
-        child: Column(
-          children: [
-            ElevatedButton(
-              onPressed: _pickDate,
-              child: Text("Pilih Tanggal Lahir"),
-            ),
-            SizedBox(height: 20),
-            Text(
-              _selectedDate != null
-                  ? "Tanggal Lahir: ${formatter.format(_selectedDate!)}"
-                  : "Belum memilih tanggal",
-              style: TextStyle(fontSize: 16),
-            ),
-          ],
+        child: Center(
+          child: Column(
+            children: [
+              ElevatedButton(
+                onPressed: _pickDate,
+                child: Text("Pilih Tanggal Lahir"),
+              ),
+              SizedBox(height: 20),
+              Text(
+                _selectedDate != null
+                    ? "Tanggal Lahir: ${formatter.format(_selectedDate!)}"
+                    : "Belum memilih tanggal",
+                style: TextStyle(fontSize: 16, color: Colors.deepPurple),
+              ),
+            ],
+          ),
         ),
       ),
     );

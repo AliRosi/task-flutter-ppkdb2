@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tugas1_flutter/tugas7_flutter/tugas7.dart';
 import 'package:tugas1_flutter/tugas8_flutter/tugas8.dart';
 
 void main() {

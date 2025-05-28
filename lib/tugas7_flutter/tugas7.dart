@@ -14,10 +14,12 @@ class TugasTujuh extends StatefulWidget {
 
 class _TugasTujuhState extends State<TugasTujuh> {
   Widget _currentScreen = CheckboxForm();
+  int _selectedIndex = 0;
 
-  void _setScreen(Widget screen) {
+  void _setScreen(Widget screen, int index) {
     setState(() {
       _currentScreen = screen;
+      _selectedIndex = index;
     });
     Navigator.pop(context);
   }
@@ -67,31 +69,40 @@ class _TugasTujuhState extends State<TugasTujuh> {
                 ],
               ),
             ),
-
             ListTile(
               leading: Icon(Icons.check_box),
               title: Text("Syarat & Ketentuan"),
-              onTap: () => _setScreen(CheckboxForm()),
+              selected: _selectedIndex == 0,
+              selectedTileColor: Colors.deepPurple.withValues(alpha: 0.2),
+              onTap: () => _setScreen(CheckboxForm(), 0),
             ),
             ListTile(
               leading: Icon(Icons.dark_mode),
               title: Text("Mode Gelap"),
-              onTap: () => _setScreen(SwitchForm()),
+              selected: _selectedIndex == 1,
+              selectedTileColor: Colors.deepPurple.withValues(alpha: 0.2),
+              onTap: () => _setScreen(SwitchForm(), 1),
             ),
             ListTile(
               leading: Icon(Icons.list),
               title: Text("Pilih Kategori Produk"),
-              onTap: () => _setScreen(Dropdown()),
+              selected: _selectedIndex == 2,
+              selectedTileColor: Colors.deepPurple.withValues(alpha: 0.2),
+              onTap: () => _setScreen(Dropdown(), 2),
             ),
             ListTile(
               leading: Icon(Icons.date_range),
               title: Text("Pilih Tanggal Lahir"),
-              onTap: () => _setScreen(DatePickerForm()),
+              selected: _selectedIndex == 3,
+              selectedTileColor: Colors.deepPurple.withValues(alpha: 0.2),
+              onTap: () => _setScreen(DatePickerForm(), 3),
             ),
             ListTile(
               leading: Icon(Icons.access_time),
               title: Text("Atur Pengingat"),
-              onTap: () => _setScreen(TimePicker()),
+              selected: _selectedIndex == 4,
+              selectedTileColor: Colors.deepPurple.withValues(alpha: 0.2),
+              onTap: () => _setScreen(TimePicker(), 4),
             ),
           ],
         ),

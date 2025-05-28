@@ -13,12 +13,12 @@ class _TugasDelapanState extends State<TugasDelapan> {
 
   final List<Widget> _pages = [const TugasTujuh(), const AboutPage()];
 
-  final List<String> _titles = ['Home', 'Tentang Aplikasi'];
+  // final List<String> _titles = ['Home', 'Tentang Aplikasi'];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(_titles[_selectedIndex])),
+      // appBar: AppBar(title: Text(_titles[_selectedIndex])),
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
@@ -47,16 +47,23 @@ class AboutPage extends StatelessWidget {
         children: [
           Text(
             'Tentang Aplikasi',
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+              color: Colors.deepPurple,
+            ),
           ),
           SizedBox(height: 16),
           Text(
-            'Aplikasi ini dibuat sebagai tugas Flutter yang menampilkan form input interaktif dengan Drawer, dan navigasi bawah menggunakan BottomNavigationBar.',
+            'Aplikasi ini dibuat sebagai tugas Flutter 7 & 8 yang menampilkan form input interaktif dengan Drawer, dan navigasi bawah menggunakan BottomNavigationBar.',
             style: TextStyle(fontSize: 16),
           ),
           SizedBox(height: 16),
-          Text('Pembuat: Ali Rosi', style: TextStyle(fontSize: 16)),
-          Text('Versi: 1.0.0', style: TextStyle(fontSize: 16)),
+          Text('Developer: Ali Rosi', style: TextStyle(fontSize: 16)),
+          Text(
+            'Versi: 1.0.0',
+            style: TextStyle(fontSize: 16, color: Colors.deepPurple),
+          ),
         ],
       ),
     );
