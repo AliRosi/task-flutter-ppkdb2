@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tugas1_flutter/tugas8_flutter/tugas8.dart';
+import 'package:tugas1_flutter/tugas9_flutter/tugas9.dart';
 
 void main() {
   runApp(const MyApp());
@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Arimo',
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const TugasDelapan(),
+      home: const TugasSembilan(),
       // initialRoute: '/',
       // routes: {
       //   '/': (context) => const Splash(),
