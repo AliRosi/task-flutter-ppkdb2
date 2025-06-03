@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tugas1_flutter/helper/preference.dart';
 import 'package:tugas1_flutter/tugas7_flutter/checkbox.dart';
 import 'package:tugas1_flutter/tugas7_flutter/date_picker.dart';
 import 'package:tugas1_flutter/tugas7_flutter/dropdown.dart';
@@ -103,6 +104,15 @@ class _TugasTujuhState extends State<TugasTujuh> {
               selected: _selectedIndex == 4,
               selectedTileColor: Colors.deepPurple.withValues(alpha: 0.2),
               onTap: () => _setScreen(TimePicker(), 4),
+            ),
+            ListTile(
+              leading: Icon(Icons.logout),
+              title: Text('Logout'),
+              onTap: () async {
+                await PreferenceHandler.deleteLogin();
+                if (!context.mounted) return;
+                Navigator.pushReplacementNamed(context, '/login');
+              },
             ),
           ],
         ),

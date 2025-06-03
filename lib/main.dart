@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:tugas1_flutter/tugas6_flutter/splash.dart';
 import 'package:tugas1_flutter/tugas6_flutter/tugas6.dart';
+import 'package:tugas1_flutter/tugas7_flutter/tugas7.dart';
 
 void main() {
   runApp(const MyApp());
@@ -32,12 +34,13 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Arimo',
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const TugasEnam(),
-      // initialRoute: '/',
-      // routes: {
-      //   '/': (context) => const Splash(),
-      //   '/home': (context) => const TugasLima(),
-      // },
+      // home: const Splash(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const Splash(),
+        '/login': (context) => const TugasEnam(),
+        '/home': (context) => const TugasTujuh(),
+      },
     );
   }
 }
