@@ -108,7 +108,7 @@ class _FormPageState extends State<FormPage> {
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Email wajib diisi';
-                  } else if (!value.contains('@.')) {
+                  } else if (!value.contains('@')) {
                     return 'Email tidak valid';
                   }
                   return null;

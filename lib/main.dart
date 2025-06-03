@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tugas1_flutter/tugas10_flutter/form_page.dart';
+import 'package:tugas1_flutter/tugas6_flutter/tugas6.dart';
 
 void main() {
   runApp(const MyApp());
@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Arimo',
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const FormPage(),
+      home: const TugasEnam(),
       // initialRoute: '/',
       // routes: {
       //   '/': (context) => const Splash(),
