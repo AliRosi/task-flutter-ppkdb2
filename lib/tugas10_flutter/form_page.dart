@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tugas1_flutter/tugas10_flutter/widgets/alert_dialog.dart';
+
 import 'confirmation_page.dart';
 
 class FormPage extends StatefulWidget {
@@ -63,6 +64,11 @@ class _FormPageState extends State<FormPage> {
         borderRadius: BorderRadius.circular(12),
         borderSide: BorderSide.none,
       ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(12),
+        borderSide: BorderSide(color: Colors.blueAccent, width: 1),
+      ),
+      focusColor: Colors.blueAccent,
     );
   }
 
@@ -102,7 +108,7 @@ class _FormPageState extends State<FormPage> {
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Email wajib diisi';
-                  } else if (!value.contains('@')) {
+                  } else if (!value.contains('@.')) {
                     return 'Email tidak valid';
                   }
                   return null;
