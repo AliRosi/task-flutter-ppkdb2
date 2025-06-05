@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tugas1_flutter/latihan_sqflite/login_screen_app.dart';
 import 'package:tugas1_flutter/latihan_sqflite/register_screen.dart';
 import 'package:tugas1_flutter/study_case/siswa_screen.dart';
+import 'package:tugas1_flutter/tugas11_flutter/tugas10.dart';
 import 'package:tugas1_flutter/tugas6_flutter/tugas6.dart';
 import 'package:tugas1_flutter/tugas7_flutter/tugas7.dart';
 
@@ -37,7 +38,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
       // home: const Splash(),
-      initialRoute: SiswaScreen.id,
+      initialRoute: LokasiFavoritScreen.id,
       routes: {
         // '/': (context) => const SplashScreen(),
         '/login': (context) => const TugasEnam(),
@@ -46,6 +47,7 @@ class MyApp extends StatelessWidget {
         LoginScreenApp.id: (context) => LoginScreenApp(),
         RegisterScreen.id: (context) => RegisterScreen(),
         SiswaScreen.id: (context) => SiswaScreen(),
+        LokasiFavoritScreen.id: (context) => LokasiFavoritScreen(),
       },
     );
   }
