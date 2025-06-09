@@ -1,8 +1,8 @@
 class LokasiModel {
-  final int? id;
-  final String nama;
-  final double latitude;
-  final double longitude;
+  int? id;
+  String nama;
+  double latitude;
+  double longitude;
 
   LokasiModel({
     this.id,
@@ -11,6 +11,7 @@ class LokasiModel {
     required this.longitude,
   });
 
+  // Konversi dari Map ke objek LokasiModel
   factory LokasiModel.fromMap(Map<String, dynamic> map) {
     return LokasiModel(
       id: map['id'],
@@ -20,12 +21,16 @@ class LokasiModel {
     );
   }
 
+  // Konversi dari objek ke Map
   Map<String, dynamic> toMap() {
-    return {
-      'id': id,
+    final map = <String, dynamic>{
       'nama': nama,
       'latitude': latitude,
       'longitude': longitude,
     };
+    if (id != null) {
+      map['id'] = id;
+    }
+    return map;
   }
 }
