@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tugas1_flutter/latihan_sqflite/login_screen_app.dart';
-import 'package:tugas1_flutter/latihan_sqflite/register_screen.dart';
-import 'package:tugas1_flutter/study_case/siswa_screen.dart';
-import 'package:tugas1_flutter/tugas11_flutter/tugas11.dart';
-import 'package:tugas1_flutter/tugas6_flutter/tugas6.dart';
-import 'package:tugas1_flutter/tugas7_flutter/tugas7.dart';
+import 'package:tugas1_flutter/tugas14_flutter/screens/home_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -37,18 +32,18 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Arimo',
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      // home: const Splash(),
-      initialRoute: LokasiFavoritScreen.id,
-      routes: {
-        // '/': (context) => const SplashScreen(),
-        '/login': (context) => const TugasEnam(),
-        '/home': (context) => const TugasTujuh(),
-        //
-        LoginScreenApp.id: (context) => LoginScreenApp(),
-        RegisterScreen.id: (context) => RegisterScreen(),
-        SiswaScreen.id: (context) => SiswaScreen(),
-        LokasiFavoritScreen.id: (context) => LokasiFavoritScreen(),
-      },
+      home: const HomeScreenPokemon(),
+      // initialRoute: LokasiFavoritScreen.id,
+      // routes: {
+      //   // '/': (context) => const SplashScreen(),
+      //   '/login': (context) => const TugasEnam(),
+      //   '/home': (context) => const TugasTujuh(),
+      //   //
+      //   LoginScreenApp.id: (context) => LoginScreenApp(),
+      //   RegisterScreen.id: (context) => RegisterScreen(),
+      //   SiswaScreen.id: (context) => SiswaScreen(),
+      //   LokasiFavoritScreen.id: (context) => LokasiFavoritScreen(),
+      // },
     );
   }
 }
