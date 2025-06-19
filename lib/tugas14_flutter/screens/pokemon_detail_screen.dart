@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:tugas1_flutter/tugas14_flutter/api/api_service.dart';
 
@@ -34,6 +35,7 @@ class _PokemonDetailScreenState extends State<PokemonDetailScreen> {
         centerTitle: true,
         backgroundColor: Colors.redAccent,
         elevation: 0,
+        iconTheme: IconThemeData(color: Colors.white),
       ),
       body: FutureBuilder<PokemonDetail>(
         future: _pokemonDetail,
@@ -47,10 +49,22 @@ class _PokemonDetailScreenState extends State<PokemonDetailScreen> {
                 children: [
                   Hero(
                     tag: widget.pokemon.name,
-                    child: Image.network(
-                      detail.imageUrl,
+                    child: CachedNetworkImage(
+                      imageUrl: detail.imageUrl,
                       height: 200,
                       fit: BoxFit.contain,
+                      placeholder:
+                          (context, url) => Icon(
+                            Icons.catching_pokemon,
+                            size: 60,
+                            color: Colors.redAccent,
+                          ),
+                      errorWidget:
+                          (context, url, error) => Icon(
+                            Icons.error_outline,
+                            size: 60,
+                            color: Colors.grey,
+                          ),
                     ),
                   ),
                   SizedBox(height: 20),
@@ -60,6 +74,15 @@ class _PokemonDetailScreenState extends State<PokemonDetailScreen> {
                       fontSize: 26,
                       fontWeight: FontWeight.w700,
                       color: Colors.black87,
+                    ),
+                  ),
+                  SizedBox(height: 8),
+                  Text(
+                    detail.category,
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontStyle: FontStyle.italic,
+                      color: Colors.black54,
                     ),
                   ),
                   SizedBox(height: 16),
@@ -83,33 +106,78 @@ class _PokemonDetailScreenState extends State<PokemonDetailScreen> {
                             value: '${detail.weight / 10} kg',
                           ),
                           Divider(),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                'Tipe:',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 16,
+                          Padding(
+                            padding: EdgeInsets.symmetric(vertical: 8),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Tipe:',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16,
+                                  ),
                                 ),
-                              ),
-                              Wrap(
-                                spacing: 6,
-                                children:
-                                    detail.types.map((type) {
-                                      return Chip(
-                                        label: Text(
-                                          type,
-                                          style: TextStyle(
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                        ),
-                                        backgroundColor: Colors.redAccent,
-                                      );
-                                    }).toList(),
-                              ),
-                            ],
+                                SizedBox(width: 10),
+                                Expanded(
+                                  child: Wrap(
+                                    alignment: WrapAlignment.end,
+                                    spacing: 8,
+                                    runSpacing: 8,
+                                    children:
+                                        detail.types.map((type) {
+                                          return Chip(
+                                            label: Text(
+                                              type,
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                            ),
+                                            backgroundColor: Colors.redAccent,
+                                          );
+                                        }).toList(),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(top: 8),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Kemampuan:',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                                SizedBox(width: 10),
+                                Expanded(
+                                  child: Wrap(
+                                    alignment: WrapAlignment.end,
+                                    spacing: 8,
+                                    runSpacing: 8,
+                                    children:
+                                        detail.abilities.map((ability) {
+                                          return Chip(
+                                            label: Text(
+                                              ability,
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                            ),
+                                            backgroundColor:
+                                                Colors.indigoAccent,
+                                          );
+                                        }).toList(),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ],
                       ),
@@ -121,7 +189,11 @@ class _PokemonDetailScreenState extends State<PokemonDetailScreen> {
           } else if (snapshot.hasError) {
             return Center(child: Text('Error: ${snapshot.error}'));
           } else {
-            return Center(child: CircularProgressIndicator());
+            return Center(
+              child: CircularProgressIndicator(
+                valueColor: AlwaysStoppedAnimation<Color>(Colors.redAccent),
+              ),
+            );
           }
         },
       ),

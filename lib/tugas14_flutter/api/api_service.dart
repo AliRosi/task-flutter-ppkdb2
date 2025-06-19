@@ -33,10 +33,15 @@ class ApiService {
     final response = await http.get(
       Uri.parse('https://pokeapi.co/api/v2/pokemon/$name'),
     );
+    final speciesResponse = await http.get(
+      Uri.parse('https://pokeapi.co/api/v2/pokemon-species/$name'),
+    );
 
-    if (response.statusCode == 200) {
+    if (response.statusCode == 200 && speciesResponse.statusCode == 200) {
       final jsonData = jsonDecode(response.body);
-      return PokemonDetail.fromJson(jsonData);
+      final speciesJson = jsonDecode(speciesResponse.body);
+
+      return PokemonDetail.fromJson(json: jsonData, speciesJson: speciesJson);
     } else {
       throw Exception('Gagal memuat detail Pokemon');
     }
