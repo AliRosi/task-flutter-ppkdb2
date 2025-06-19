@@ -34,6 +34,7 @@ class _PokemonDetailScreenState extends State<PokemonDetailScreen> {
         centerTitle: true,
         backgroundColor: Colors.redAccent,
         elevation: 0,
+        iconTheme: IconThemeData(color: Colors.white),
       ),
       body: FutureBuilder<PokemonDetail>(
         future: _pokemonDetail,
@@ -62,6 +63,15 @@ class _PokemonDetailScreenState extends State<PokemonDetailScreen> {
                       color: Colors.black87,
                     ),
                   ),
+                  SizedBox(height: 8),
+                  Text(
+                    detail.category,
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontStyle: FontStyle.italic,
+                      color: Colors.black54,
+                    ),
+                  ),
                   SizedBox(height: 16),
                   Card(
                     shape: RoundedRectangleBorder(
@@ -83,33 +93,78 @@ class _PokemonDetailScreenState extends State<PokemonDetailScreen> {
                             value: '${detail.weight / 10} kg',
                           ),
                           Divider(),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                'Tipe:',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 16,
+                          Padding(
+                            padding: EdgeInsets.symmetric(vertical: 8),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Tipe:',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16,
+                                  ),
                                 ),
-                              ),
-                              Wrap(
-                                spacing: 6,
-                                children:
-                                    detail.types.map((type) {
-                                      return Chip(
-                                        label: Text(
-                                          type,
-                                          style: TextStyle(
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                        ),
-                                        backgroundColor: Colors.redAccent,
-                                      );
-                                    }).toList(),
-                              ),
-                            ],
+                                SizedBox(width: 10),
+                                Expanded(
+                                  child: Wrap(
+                                    alignment: WrapAlignment.end,
+                                    spacing: 8,
+                                    runSpacing: 8,
+                                    children:
+                                        detail.types.map((type) {
+                                          return Chip(
+                                            label: Text(
+                                              type,
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                            ),
+                                            backgroundColor: Colors.redAccent,
+                                          );
+                                        }).toList(),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(top: 8),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Kemampuan:',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                                SizedBox(width: 10),
+                                Expanded(
+                                  child: Wrap(
+                                    alignment: WrapAlignment.end,
+                                    spacing: 8,
+                                    runSpacing: 8,
+                                    children:
+                                        detail.abilities.map((ability) {
+                                          return Chip(
+                                            label: Text(
+                                              ability,
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                            ),
+                                            backgroundColor:
+                                                Colors.indigoAccent,
+                                          );
+                                        }).toList(),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ],
                       ),
@@ -121,7 +176,11 @@ class _PokemonDetailScreenState extends State<PokemonDetailScreen> {
           } else if (snapshot.hasError) {
             return Center(child: Text('Error: ${snapshot.error}'));
           } else {
-            return Center(child: CircularProgressIndicator());
+            return Center(
+              child: CircularProgressIndicator(
+                valueColor: AlwaysStoppedAnimation<Color>(Colors.redAccent),
+              ),
+            );
           }
         },
       ),

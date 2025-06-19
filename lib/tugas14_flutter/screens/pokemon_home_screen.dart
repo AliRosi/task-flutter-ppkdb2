@@ -4,14 +4,14 @@ import 'package:tugas1_flutter/tugas14_flutter/api/api_service.dart';
 import '../models/pokemon_model.dart';
 import 'pokemon_detail_screen.dart';
 
-class HomeScreenPokemon extends StatefulWidget {
-  const HomeScreenPokemon({super.key});
+class PokemonHomeScreen extends StatefulWidget {
+  const PokemonHomeScreen({super.key});
 
   @override
-  State<HomeScreenPokemon> createState() => _HomeScreenPokemonState();
+  State<PokemonHomeScreen> createState() => _PokemonHomeScreenState();
 }
 
-class _HomeScreenPokemonState extends State<HomeScreenPokemon> {
+class _PokemonHomeScreenState extends State<PokemonHomeScreen> {
   late Future<List<Pokemon>> _pokemonList;
   List<Pokemon> _allPokemons = [];
   List<Pokemon> _filteredPokemons = [];
@@ -66,9 +66,20 @@ class _HomeScreenPokemonState extends State<HomeScreenPokemon> {
     return Scaffold(
       backgroundColor: Colors.grey[50],
       appBar: AppBar(
-        title: Text(
-          'Daftar Pokémon',
-          style: TextStyle(fontWeight: FontWeight.w600, color: Colors.white),
+        title: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Image.asset('assets/image/pokeball.png', height: 25),
+            SizedBox(width: 5),
+            Text(
+              'Daftar Pokémon',
+              style: TextStyle(
+                fontWeight: FontWeight.w600,
+                fontSize: 20,
+                color: Colors.white,
+              ),
+            ),
+          ],
         ),
         centerTitle: true,
         backgroundColor: Colors.redAccent,
@@ -103,7 +114,13 @@ class _HomeScreenPokemonState extends State<HomeScreenPokemon> {
                 future: _pokemonList,
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
-                    return Center(child: CircularProgressIndicator());
+                    return Center(
+                      child: CircularProgressIndicator(
+                        valueColor: AlwaysStoppedAnimation<Color>(
+                          Colors.redAccent,
+                        ),
+                      ),
+                    );
                   } else if (snapshot.hasError) {
                     return Center(child: Text('Error: ${snapshot.error}'));
                   } else if (_filteredPokemons.isEmpty) {
