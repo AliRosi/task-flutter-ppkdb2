@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tugas1_flutter/tugas14_flutter/screens/pokemon_splash_screen.dart';
+import 'package:tugas1_flutter/tugas15_flutter/screens/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,12 +11,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         fontFamily: 'Arimo',
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const PokemonSplashScreen(),
+      home: const SplashScreennn(),
       // initialRoute: LokasiFavoritScreen.id,
       // routes: {
       //   // '/': (context) => const SplashScreen(),
